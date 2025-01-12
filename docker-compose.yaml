@@ -191,7 +191,7 @@ networks:
       - xpack.ml.use_auto_machine_memory_percent=true
 
     #   Memory limit for the container, with default value
-    mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
+    #mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
 
     ulimits:
       #
@@ -301,7 +301,7 @@ networks:
       - xpack.ml.use_auto_machine_memory_percent=true
 
     #   Memory limit for the container, with default value
-    mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
+    #mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
 
     ulimits:
       #
@@ -411,7 +411,7 @@ networks:
       - xpack.ml.use_auto_machine_memory_percent=true
 
     #   Memory limit for the container, with default value
-    mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
+    #mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
 
     ulimits:
       #
