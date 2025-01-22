@@ -15,17 +15,16 @@ networks:
   # --------------------------------------------------------------------------------#
 
   #   Private network for application services    ----------------------------------#
+
   stack_private_network:
     #
     #   SSH command to create the Docker network: 
     #   docker network create --driver bridge stack_private_network --subnet=172.16.0.0/16
     #
-    #
     #   Setup Network Driver in .env or use default bridge
     #
     driver: bridge
     external: true
-
 
   #---------------------------------------------------------------------------------#
 
@@ -40,9 +39,9 @@ networks:
 
 services:    
 
-  #-------------------------------------------------------------------------------#
+  # --------------------------------------------------------------------------------#
 
-  #   SETUP ELASTICSEARCH CLUSTER    ---------------------------------------------#
+  #   SETUP ELASTICSEARCH CLUSTER    -----------------------------------------------#
 
   setup:
     image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH}
@@ -110,9 +109,9 @@ services:
       timeout: 5s
       retries: 120
 
-  #-------------------------------------------------------------------------------#
+  # --------------------------------------------------------------------------------#
 
-  #   ELASTICSEARCH NODE 01 ------------------------------------------------------#
+  #   ELASTICSEARCH NODE 01    -----------------------------------------------------#
 
   es01:
     depends_on:
@@ -183,6 +182,12 @@ services:
       - xpack.security.enabled=true
 
       #
+      #   Enable X-Pack security enrollment features
+      #
+
+      - xpack.security.enrollment.enabled=true
+
+      #
       #   SSL settings for HTTP layer
       #
 
@@ -218,17 +223,28 @@ services:
 
       - xpack.ml.use_auto_machine_memory_percent=true
 
+    #
     #   Memory limit for the container, with default value
+    #
+
     mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
+
     ulimits:
       #
       #   Memory lock settings for Elasticsearch
       #
+
       memlock:
+        #
         #   Soft memory limit, with default value
+        #
+
         soft: -1
 
+        #
         #   Hard memory limit, with default value
+        #
+
         hard: -1
 
     healthcheck:
@@ -241,9 +257,9 @@ services:
       timeout: 10s
       retries: 120
 
-  #-------------------------------------------------------------------------------#
+  # --------------------------------------------------------------------------------#
 
-  #   ELASTICSEARCH NODE 02 ------------------------------------------------------#
+  #   ELASTICSEARCH NODE 02    -----------------------------------------------------#
 
   es02:
     depends_on:
@@ -300,10 +316,40 @@ services:
       - bootstrap.memory_lock=true
 
       #
+      #   Memory lock settings
+      #
+
+      - bootstrap.memory_lock=true
+
+      #
+      #   Memory lock settings
+      #
+
+      - bootstrap.memory_lock=true
+
+      #
+      #   Memory lock settings
+      #
+
+      - bootstrap.memory_lock=true
+
+      #
+      #   Memory lock settings
+      #
+
+      - bootstrap.memory_lock=true
+
+      #
       #   Enable X-Pack security features
       #
 
       - xpack.security.enabled=true
+
+      #
+      #   Enable X-Pack security enrollment features
+      #
+
+      - xpack.security.enrollment.enabled=true
 
       #
       #   SSL settings for HTTP layer
@@ -341,18 +387,30 @@ services:
 
       - xpack.ml.use_auto_machine_memory_percent=true
 
+    #
     #   Memory limit for the container, with default value
+    #
+
     mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
+
     ulimits:
       #
       #   Memory lock settings for Elasticsearch
       #
+
       memlock:
+        #
         #   Soft memory limit, with default value
+        #
+
         soft: -1
 
+        #
         #   Hard memory limit, with default value
+        #
+
         hard: -1
+
     healthcheck:
       test:
         [
@@ -363,9 +421,9 @@ services:
       timeout: 10s
       retries: 120
 
-  #-------------------------------------------------------------------------------#
+  # --------------------------------------------------------------------------------#
 
-  #   ELASTICSEARCH NODE 03 ------------------------------------------------------#
+  #   ELASTICSEARCH NODE 03 --------------------------------------------------------#
 
   es03:
     depends_on:
@@ -395,7 +453,7 @@ services:
       #   Cluster name for Elasticsearch
       #
 
-      - cluster.name=${CLUSTER_NAME_ELASTICSEARCH}
+      - cluster.name=${CLUSTER_NAME_ELASTICSEARCH:-elasticsearch-cluster}
 
       #
       #   Initial master nodes in the cluster
@@ -422,10 +480,22 @@ services:
       - bootstrap.memory_lock=true
 
       #
+      #   Memory lock settings
+      #
+
+      - bootstrap.memory_lock=true
+
+      #
       #   Enable X-Pack security features
       #
 
       - xpack.security.enabled=true
+
+      #
+      #   Enable X-Pack security enrollment features
+      #
+
+      - xpack.security.enrollment.enabled=true
 
       #
       #   SSL settings for HTTP layer
@@ -463,18 +533,30 @@ services:
 
       - xpack.ml.use_auto_machine_memory_percent=true
 
+    #
     #   Memory limit for the container, with default value
+    #
+
     mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
+
     ulimits:
       #
       #   Memory lock settings for Elasticsearch
       #
+
       memlock:
+        #
         #   Soft memory limit, with default value
+        #
+
         soft: -1
 
+        #
         #   Hard memory limit, with default value
+        #
+
         hard: -1
+
     healthcheck:
       test:
         [
@@ -485,9 +567,9 @@ services:
       timeout: 10s
       retries: 120
 
-  #-------------------------------------------------------------------------------#
+  # --------------------------------------------------------------------------------#
 
-  #   KIBANA    ------------------------------------------------------------------#
+  #   KIBANA    --------------------------------------------------------------------#
 
   kibana:
     depends_on:
@@ -510,8 +592,13 @@ services:
       - ELASTICSEARCH_USERNAME=kibana_system
       - ELASTICSEARCH_PASSWORD=${KIBANA_PASSWORD}
       - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt
+
+    #
     #   Memory limit for the container, with default value
+    #
+
     mem_limit: ${MEMORY_LIMIT_ELASTICSEARCH:-2147483648}
+
     healthcheck:
       test:
         [
@@ -527,6 +614,7 @@ services:
 #   STACK VOLUMES  -----------------------------------------------------------------#
 
 volumes:
+
   #   STACK ELASTICSEARCH CERTIFICATES STORAGE
   certs:
     driver: local
