@@ -44,7 +44,7 @@ services:
   #   SETUP ELASTICSEARCH CLUSTER    -----------------------------------------------#
 
   setup:
-    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH}
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH:-8.17.0}
     volumes:
       #
       # Volume for storing certificates
@@ -117,7 +117,7 @@ services:
     depends_on:
       setup:
         condition: service_healthy
-    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH}
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH:-8.17.0}
     volumes:
       #
       #   Volume for storing certificates
@@ -264,7 +264,7 @@ services:
   es02:
     depends_on:
       - es01
-    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH}
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH:-8.17.0}
     volumes:
       #
       #   Volume for storing certificates
@@ -428,7 +428,7 @@ services:
   es03:
     depends_on:
       - es02
-    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH}
+    image: docker.elastic.co/elasticsearch/elasticsearch:${STACK_VERSION_ELASTICSEARCH:-8.17.0}
     volumes:
       #
       #   Volume for storing certificates
@@ -579,7 +579,7 @@ services:
         condition: service_healthy
       es03:
         condition: service_healthy
-    image: docker.elastic.co/kibana/kibana:${STACK_VERSION_ELASTICSEARCH}
+    image: docker.elastic.co/kibana/kibana:${STACK_VERSION_ELASTICSEARCH:-8.17.0}
     volumes:
       - certs:/usr/share/kibana/config/certs
       - kibana-data:/usr/share/kibana/data
