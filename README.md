@@ -46,7 +46,6 @@ The **Coozila! Package for Elasticsearch Cluster** integrates **Elasticsearch** 
 - **High Availability**: Ensure reliable data storage with integrated failover and replication mechanisms, even during node failures.
 - **Optimized Data Retrieval**: Leverage Kibana to create visualizations and dashboards that provide insights into your data, achieving better resource management.
 - **Advanced Querying**: Utilize Elasticsearch's powerful querying capabilities to retrieve and analyze data efficiently.
-- **Cold Cache Warmup**: Bring new nodes online seamlessly without impacting application performance.
 - **Rich Monitoring Tools**: Access detailed statistics and debugging commands for complete visibility into data performance.
 - **Security First**: Utilize built-in SSL support and IPv6 compatibility to secure data in transit.
 - **Multi-Threaded Architecture**: Harness the power of multi-core systems for efficient request handling.
@@ -95,9 +94,8 @@ We extend our gratitude to the creators and maintainers of the tools and technol
 
 ### GitHub:
 
-- [Elasticsearch GitHub Repository](https://github.com/elasticsearch/elasticsearch)
-- [Kibana GitHub Repository](https://github.com/facebook/mcrouter)
-- [Memcached GitHub Repository](https://github.com/memcached/memcached)
+- [Elasticsearch GitHub Repository](https://github.com/elastic/elasticsearch)
+- [Kibana GitHub Repository](https://github.com/elastic/kibana)
 - [Coozila! GitHub Main Repository](https://github.com/coozila)
 
 ### AI Contributions:
@@ -173,8 +171,8 @@ After your purchase, please provide the following information via email:
 For more details, please refer to the main repository: 
 
 - [Coozila! Apps](https://github.com/coozila/apps).
-- [Mcrouter](https://github.com/facebook/mcrouter)
-- [Elasticsearch](https://github.com/elasticsearch/elasticsearch/tree/main/docs)
+- [Kibana](https://github.com/elastic/kibana)
+- [Elasticsearch](https://github.com/elastic/elasticsearch)
 
 ## Trademarks and Copyright
 
@@ -187,8 +185,8 @@ Copyright (C) 2009 - 2025 Coozila! Licensed under the MIT License.
 ### Licenses
 
 - **Coozila!**: [MIT License](https://github.com/coozila/elasticsearch-cluster/blob/dev/LICENSE)
-- **Elasticsearch**: [Elasticsearch License](https://github.com/elasticsearch/elasticsearch/blob/main/LICENSE.md)
-- **Kibana**: [Kibana License](https://github.com/facebook/mcrouter/blob/main/LICENSE)
+- **Elasticsearch**: [Elasticsearch License](https://github.com/elastic/elasticsearch/blob/main/LICENSE.md)
+- **Kibana**: [Kibana License](https://github.com/elastic/kibana/blob/main/LICENSE)
 
 ## Disclaimer
 
