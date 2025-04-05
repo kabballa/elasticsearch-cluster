@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://twitter.com/coozila" target="_blank"><img src="https://img.shields.io/twitter/follow/:coozila" alt="Follow on Twitter" /></a>
+    <a href="https://www.coozila.com/plus/view-organization-profile/coozila" target="_blank"><img src="https://img.shields.io/badge/Follow_on-Coozila!-1c7ed6?style=flat" alt="Follow on Coozila!" /></a>
 </p>
 
 <p align="center">
@@ -28,6 +28,10 @@ If you want to support our project and help us grow it, you can [become a sponso
 ## Coozila! Docker Package APP for Elasticsearch Cluster with Kibana
 
 The **Coozila! Package for Elasticsearch Cluster** integrates **Elasticsearch** and **Kibana**, delivering a powerful solution tailored for modern applications. Designed to maximize scalability and performance, this package empowers developers to deploy a distributed data storage and visualization layer effortlessly, alleviating database load while significantly improving response times.
+
+This application is part of a larger platform called **Kabballa**. Kabballa is a cutting-edge application designed to streamline the management and deployment of modern, scalable infrastructures. This platform supports a wide array of technologies, including MySQL, Redis, Nginx, PHP, Golang, Vite, Node.js, Memcached, Elasticsearch, and more. Leveraging the power of Kubernetes (K8s) or Docker Swarm, it provides an efficient way to host and orchestrate applications across multiple environments. Soon, Kabballa will become open source, inviting the community to contribute and innovate.
+
+![Kabballa](assets/kabballa.jpeg)
 
 ### Why Choose Coozila?
 
